@@ -152,7 +152,7 @@ class Rate(namedtuple('Rate', ['base', 'currency', 'date', 'rate'])):
     def __format__(self, fmt):
         if fmt == 'ledger':
             rate = self._replace(rate=1/self.rate)
-            return 'P {date} {currency} {base} {rate:.5f}'.format(**rate._asdict())
+            return 'P {date} {currency} {rate:.5f} {base}'.format(**rate._asdict())
         return repr(self)
 
 
